@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithm Concepts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <h2>Algorithms</h2>
+    <ul>
+        <li><a href="#greedy">Greedy</a></li>
+        <li><a href="#divide">Divide & Conquer</a></li>
+        <li><a href="#dp">Dynamic Programming</a></li>
+        <li><a href="#np">NP Heuristic</a></li>
+        <li><a href="#interval">Interval Scheduling</a></li>
+    </ul>
+</nav>
+
+<section id="greedy">
+    <h1>Greedy Algorithms</h1>
+    <div class="cards">
+
+        <div class="card">
+            <h2>Dijkstra's Algorithm</h2>
+
+            <p><b>Intro:</b> Dijkstra’s algorithm finds the shortest path from a chosen node to all other nodes in a weighted graph.</p>
+
+            <p><b>Description:</b> Dijkstra's algorithm picks the closest node to the chosen node that hasn't been visited yet. Then, it looks at the neighbors of that closest node and updates their distances if a shorter path was found. It's very similar to DFS and BFS but those don't work with weighted graphs.</p>
+
+            <p><b>History:</b> Dijkstra's algorithm was made by computer scientist Edsger Dijkstra in 1956. He created it to show people that computers can solve complex problems, but specifically wanted to show it off on a ARMAC computer 
+                that was released in 1956. Fun fact: It took Dijkstra only 20 minutes to make his algorithm.</p>
+
+            <p><b>How to Solve:</b></p>
+            <ul>
+                <li>Initialize all of the distances</li>
+                <li>Set source distance to 0</li>
+                <li>Use a priority queue</li>
+                <li>Repeatedly extract minimum node</li>
+                <li>Relax all neighboring edges</li>
+            </ul>
+
+            <p><b>Time Complexity:</b> O(E log V)</p>
+            <p><b>Space Complexity:</b> O(V)</p>
+
+            <p>Code</p>
+
+            <p><b>Why is it Greedy?</b> Dijkstra's algorithm is a greedy algorithm because it always selects the node that is the closese to the source.</p>
+            
+        </div>
+
+        <div class="img-left">
+            <img src="Pictures/1_rX7jt8J61Pyeu6Qb98mXUg.jpg" class="img-left" alt="Picture" width="400" height="200">
+        </div>
+
+        <div class="card">
+            <h2>Kruskal's Algorithm</h2>
+
+            <p><b>Intro:</b> Kruskal’s algorithm finds the Minimum Spanning Tree (MST) of a graph.</p>
+
+            <p><b>Description:</b> It sorts edges by weight and adds them to the MST if they do not form a cycle. A MST is a subset of edges that connects all vertices in the graph with the minimum possible total edge weight</p>
+
+            <p><b>History:</b> Kruskal's algorithm was proposed by Joseph Kruskal in 1956 as a solution to the minimum spanning tree problem.</p>
+
+            <p><b>Use Case:</b> Used in network design such as creating the most cost-effective road, or an electrical grid.</p>
+            <p><b>How to Solve:</b></p>
+            <ul>
+                <li>Sort edges by weight</li>
+                <li>Initialize disjoint set</li>
+                <li>Add smallest edge that doesn't create a cycle</li>
+                <li>Repeat until V-1 edges selected</li>
+            </ul>
+
+            <p><b>Time Complexity:</b> O(E log E)</p>
+            <p><b>Space Complexity:</b> O(V)</p>
+
+            <P>CODE</P>
+
+            <p><b>Why is it Greedy?</b> Kruskal's algorithm is a greedy algorithm because it always selects the smallest edge that doesn't create a cycle at each step.</p>
+       
+        </div>
+
+        <div class="img-right">
+            <img src="Pictures\6322896.jpg" alt="Picture" width="360">
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="divide">
+    <h1>Divide & Conquer</h1>
+    <div class="cards">
+
+        <div class="card">
+            <h2>Merge Sort</h2>
+
+            <p><b>Intro:</b> Merge sort is a recursive sorting algorithm, it splits arrays and lists into halves as many times as necessary and sorts them back together.</p>
+
+            <p><b>Description:</b> The array is divided until subarrays of size one remain. After the array is fully broken down, the algorithm combines the sub array back together but in sorted order. </p>
+
+            <p><b>History:</b> Merge sort was invented by John von Neumann in 1945. He developed it to sort large datasets on old computers.</p>
+            <p><b>Use Case:</b> Used in siorting large datasets for stable implementations.</p>
+            <p><b>How to Solve:</b></p>
+            <ul>
+                <li>Divide array into two halves</li>
+                <li>Recursively sort each half</li>
+                <li>Merge the sorted halves</li>
+            </ul>
+
+            <p><b>Time Complexity:</b> O(n log n)</p>
+            <p><b>Space Complexity:</b> O(n)</p>
+
+            <p>Code</p>
+
+            <p><b>Why is it Dividing and Conquering?</b>Merge sort is considered a divide and conquer algorithm because it divides the problem into smaller problems, solves them recursively, and then conquers them.</p>
+
+        </div>
+
+        <div class="img-left">
+            <img src="Pictures\merge-sort-algorithm.webp" class="img-left" alt="Picture" width="400" height="200">
+        </div>
+
+
+        <div class="card">
+            <h2>Binary Search</h2>
+
+            <p><b>Intro:</b> Binary search is a efficient algorithm that searches a sorted array for a chosen element. Binary search cuts the array/list in half continuosly until it finds its element.</p>
+
+            <p><b>Description:</b> The algorithm works by repeatedly dividing the array in half. Depending on if the target is higher, lower, or equal to the middle element, the algorithm divides either the right half or the left half. Unless the target was in the middle. </p>
+            <p><b>History:</b> Binary search was first described by John Mauchly in 1946. It was developed as a way to quickly search through sorted data on early computers. Fun fact: Binary search is a very popular algorithm, 
+                nearly every programming language as a built-in library function for binary search.</p>
+
+            <p><b>Use Case:</b> Used in searching sorted arrays, databases, search engines, and for efficient lookups.</p>
+
+            <p><b>How to Solve:</b></p>
+            <ul>
+                <li>Find middle index</li>
+                <li>Compare with target</li>
+                <li>Search left or right half</li>
+                <li>Repeat until found</li>
+            </ul>
+
+            <p><b>Time Complexity:</b> O(log n)</p>
+            <p><b>Space Complexity:</b> O(1)</p>
+
+            <p>Code</p>
+
+            <p><b>Why is it Dividing and Conquering?</b> The reason binary search is a divide-and-conquer algorithm is that it divides the list in half, searches for the target in half of it, and continues this process until it finds the target.</p>
+            
+            
+        </div>
+
+        <div class="img-right">
+            <img src="Pictures\binarysearch.png" alt="Picture" width="360">
+        </div>
+
+    </div>
+</section>
+
+
+<section id="dp">
+    <h1>Dynamic Programming</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>Fibonacci</h2>
+
+            <p><b>Intro:</b>The Fibonacci sequence is a classic example that is given in the context of dynamic programming and recursion in computer science. The sequence is obtained by summing the previous two numbers.</p>
+
+            <p><b>Description:</b>The Fibonacci sequence starts with a 0 and 1. Each Number after the 0 and 1 is the sum of the two last numbers.</p>
+
+            <p><b>History:</b> Fun fact, The Fibonacci sequence was actually first mentioned in a book by Leonardo of Pisa back in 1202. The book described the growth rate of rabbits since each rabbit produces a pair in the next generation.</p>
+
+            <p><b>Use Case:</b> Used in algorithm design, mathematics, and nature patterns like rabbits offsprings.</p>
+            <p><b>How to Solve:</b></p>
+            <ul>
+                <li>Use memoization or tabulation</li>
+                <li>Start with the base case</li>
+                <li>Build new Fibonacci number using the previous two numbers</li>
+            </ul>
+
+            <p><b>Time Complexity:</b> O(n)</p>
+            <p><b>Space Complexity:</b> O(n)</p>
+
+            <p>code</p>
+
+            <p><b>Why is uses Dynamic Programming?</b> Each Fibonacci number is built from preceding Fibonacci numbers and then overlapping subproblems.</p>
+
+            <p></p>
+
+        </div>
+
+        <div class="img-left">
+            <img src="Pictures\Fibonacci_Squares.svg.png" alt="Picture" width="360">
+        </div>
+
+
+        <div class="card">
+            <h2>Knapsack Problem</h2>
+
+            <p><b>Intro:</b> The Knapsack problem's goal is to solve the question of how to optimize the selection of a set of items that can be carried in a knapsack while still maximizing the overall value. 
+                The weights and values of the items in the knapsack need to be taken into consideration.</p>
+
+            <p><b>Description:</b>The most commonly discussed one is the 0/1 Knapsack Problem. In the 0/1 Knapsack Problem, items can be either taken or left out. The problem becomes challenging because checking all item combinations is computationally expensive. 
+                The problem is usually solved using a technique known as dynamic programming. In the Knapsack Problem, a table stores the maximum value achievable with a given number of items. The idea is to break the problem into smaller subproblems. The optimal solution to the problem is then obtained by combining the optimal solutions to the smaller subproblems.</p>
+
+            <p><b>History:</b>.</p>
+            <p><b>How to Solve:</b></p>
+            <ul>
+                <li>Create DP table</li>
+                <li>Iterate through items</li>
+                <li>Choose max between including or excluding item</li>
+            </ul>
+
+            <p><b>Time Complexity:</b> O(nW)</p>
+            <p><b>Space Complexity:</b> O(nW)</p>
+
+            <p>code</p>
+
+            <p><b>Why is it Dynamic Programming?</b>The knapsack problem is considered a dynamic programming problem because it divides the problem into smaller subproblems, solves each problem once, and then stores the results.</p>
+        </div>
+
+        <div class="img-right">
+            <img src="Pictures\Dynamic-programming-to-solve-0-1-Knapsack-problem.png" alt="Picture" width="360">
+        </div>
+
+    </div>
+</section>
+
+
+<section id="np">
+    <h1>NP Heuristic</h1>
+
+    <div class="cards">
+
+        <div class="card">
+
+        <h2>Traveling Salesman Heuristic</h2>
+
+        <p><b>Intro:</b> The Traveling Salesman Problem asks for the shortest route visiting all cities once.</p>
+
+        <p><b>Description:</b> Because it is NP-hard, heuristics like nearest neighbor give approximate solutions.</p>
+
+        <p><b>How to Solve:</b></p>
+        <ul>
+            <li>Start at a city</li>
+            <li>Choose nearest unvisited city</li>
+            <li>Repeat until all cities visited</li>
+        </ul>
+
+        <p><b>Time Complexity:</b> O(n²)</p>
+        <p><b>Space Complexity:</b> O(n)</p>
+
+        <p>Code</p>
+    
+        <p><b>Why is it NP Heuristic?</b> The nearest neighbor method for the Traveling Salesman Problem is a fast method to obtain a good path, though not necessarily the optimal path. This method is used because the problem is very difficult (NP-hard) to solve optimally.</p>
+        
+        </div>
+
+        <div class="img-left">
+            <img src="Pictures\48StatesTSP.png" alt="Picture" width="400">
+            <img src="Pictures\1_1f6yB-G66Nn8meOrILcMTw.png" alt="Picture" width="400">
+        </div>
+    </div>
+
+    
+</section>
+
+
+<section id="interval">
+    <h1>Interval Scheduling</h1>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h2>Interval Scheduling Algorithm</h2>
+
+            <p><b>Intro:</b> Interval scheduling selects the maximum number of non-overlapping intervals.</p>
+
+            <p><b>Description:</b> It is a greedy algorithm that sorts intervals by finishing time.</p>
+
+            <p><b>How to Solve:</b></p>
+            <ul>
+                <li>Sort intervals by finish time</li>
+                <li>Select first interval</li>
+                <li>Pick next interval that starts after last finish</li>
+            </ul>
+
+            <p><b>Time Complexity:</b> O(n log n)</p>
+            <p><b>Space Complexity:</b> O(1)</p>
+            
+            <p>code</p>
+        </div>
+
+        <div class="img-left">
+            <img src="Pictures\all-jobs.png" alt="Picture" width="400">
+            <img src="Pictures\optimal-jobs.png" alt="Picture" width="400">
+        </div>
+
+    </div>
+</section>
+
+<p>Abenezer Abraham</p>
+
+<script src="script.js"></script>
+</body>
+</html>
