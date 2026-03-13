@@ -2,33 +2,25 @@
 
 # Results
 ## Binary Search
-
-![alt text](ResultsPics\image.png)
+![Binary Search](ResultsPics/image-1.png)
 
 ## Merge Sort
-
-![alt text](ResultsPics\image-1.png)
+![Merge Sort](ResultsPics/image-2.png)
 
 ## Fibonacci
-
-![alt text](ResultsPics\image-2.png)
+![Fibonacci](ResultsPics/image-3.png)
 
 ## Knapsack
-
-![alt text](ResultsPics\image-3.png)
+![Knapsack](ResultsPics/image-4.png)
 
 ## Dijkstra
+![Dijkstra](ResultsPics/image-5.png)
 
-![alt text](ResultsPics\image-4.png)
-
-## Kruscal
-
-![alt text](ResultsPics\image-5.png)
+## Kruskal
+![Kruskal](ResultsPics/image-6.png)
 
 ## TSP
-
-![alt text](ResultsPics\image-6.png)
+![TSP](ResultsPics/image-7.png)
 
 ## Interval Scheduling
-
-![alt text](ResultsPics\image-7.png)
+![Interval Scheduling](ResultsPics/image.png)
