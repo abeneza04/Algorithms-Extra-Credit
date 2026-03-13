@@ -19,7 +19,7 @@
         <li><a href="#interval">Interval Scheduling</a></li>
     </ul>
 </nav>
-
+<p>Abenezer</p>
 <section id="greedy">
     <h1>Greedy Algorithms</h1>
     <div class="cards">
@@ -132,10 +132,10 @@
             <p><b>Intro:</b> Binary search is a efficient algorithm that searches a sorted array for a chosen element. Binary search cuts the array/list in half continuosly until it finds its element.</p>
 
             <p><b>Description:</b> The algorithm works by repeatedly dividing the array in half. Depending on if the target is higher, lower, or equal to the middle element, the algorithm divides either the right half or the left half. Unless the target was in the middle. </p>
-            <p><b>History:</b> Binary search was first described by John Mauchly in 1946. It was developed as a way to quickly search through sorted data on early computers. Fun fact: Binary search is a very popular algorithm, 
+            <p><b>History:</b> Binary search was first created by John Mauchly in 1946. It was developed as a way to quickly search through sorted data on early computers. Fun fact: Binary search is a very popular algorithm, 
                 nearly every programming language as a built-in library function for binary search.</p>
 
-            <p><b>Use Case:</b> Used in searching sorted arrays, databases, search engines, and for efficient lookups.</p>
+            <p><b>Use Case:</b> Used in searching sorted arrays, databases, search engines, and more.</p>
 
             <p><b>How to Solve:</b></p>
             <ul>
@@ -180,7 +180,6 @@
             <p><b>Use Case:</b> Used in algorithm design, mathematics, and nature patterns like rabbits offsprings.</p>
             <p><b>How to Solve:</b></p>
             <ul>
-                <li>Use memoization or tabulation</li>
                 <li>Start with the base case</li>
                 <li>Build new Fibonacci number using the previous two numbers</li>
             </ul>
@@ -193,7 +192,7 @@
 
             <p><b>Why is uses Dynamic Programming?</b> Each Fibonacci number is built from preceding Fibonacci numbers and then overlapping subproblems.</p>
 
-            <p></p>
+            <p><b>Mathematical Formula:</b> F(0)=0, F(1)=1, F(n)=F(n-1)+F(n-2) for n > 1</p>
 
         </div>
 
@@ -206,7 +205,7 @@
             <h2>Knapsack Problem</h2>
 
             <p><b>Intro:</b> The Knapsack problem's goal is to solve the question of how to optimize the selection of a set of items that can be carried in a knapsack while still maximizing the overall value. 
-                The weights and values of the items in the knapsack need to be taken into consideration.</p>
+                The weights and values of the items in the knapsack are very important because it is necessary to maximize the value of all of the items in total without it being too heavy.</p>
 
             <p><b>Description:</b>The most commonly discussed one is the 0/1 Knapsack Problem. In the 0/1 Knapsack Problem, items can be either taken or left out. The problem becomes challenging because checking all item combinations is computationally expensive. 
                 The problem is usually solved using a technique known as dynamic programming. In the Knapsack Problem, a table stores the maximum value achievable with a given number of items. The idea is to break the problem into smaller subproblems. The optimal solution to the problem is then obtained by combining the optimal solutions to the smaller subproblems.</p>
@@ -244,9 +243,9 @@
 
         <h2>Traveling Salesman Heuristic</h2>
 
-        <p><b>Intro:</b> The Traveling Salesman Problem asks for the shortest route visiting all cities once.</p>
+        <p><b>Intro:</b> The Traveling Salesman Problem (TSP) involves finding the shortest route visiting all cities once.</p>
 
-        <p><b>Description:</b> Because it is NP-hard, heuristics like nearest neighbor give approximate solutions.</p>
+        <p><b>Description:</b> Because it is NP-hard, heuristics like nearest neighbors give potential solutions that are close to optimal.</p>
 
         <p><b>How to Solve:</b></p>
         <ul>
@@ -261,7 +260,8 @@
         <a class="repo" href="https://github.com/abeneza04/Algorithms-Extra-Credit/blob/main/Heuristic.py/TSP.py" target="_blank">GitHub Repo</a>
 
     
-        <p><b>Why is it NP Heuristic?</b> The nearest neighbor method for the Traveling Salesman Problem is a fast method to obtain a good path, though not necessarily the optimal path. This method is used because the problem is very difficult (NP-hard) to solve optimally.</p>
+        <p><b>Why is it NP Heuristic?</b> The nearest neighbor method for the Traveling Salesman Problem is a fast method to find a good path, though not necessarily the optimal path because there is no definitive way to guarantee the best path. 
+            So the method is used because the problem is very difficult (NP-hard) to solve optimally.</p>
         
         </div>
 
@@ -284,9 +284,13 @@
 
             <h2>Interval Scheduling Algorithm</h2>
 
-            <p><b>Intro:</b> Interval scheduling selects the maximum number of non-overlapping intervals.</p>
+            <p><b>Intro:</b> Interval scheduling selects the maximum number of non-overlapping intervals. The goal would be to schedule the most amount of compatible events without conflicts.</p>
 
-            <p><b>Description:</b> It is a greedy algorithm that sorts intervals by finishing time.</p>
+            <p><b>Description:</b> It is a greedy algorithm that sorts intervals by finishing time. </p>
+
+            <p><b>History:</b> Interval scheduling was "created" in the 1950 when workers needed help to figure out tanker scheduling problems.</p>
+
+            <p><b>Use Cases:</b> Assigning jobs, scheduling meetings/sharing classrooms, allocating resources and more.</p>
 
             <p><b>How to Solve:</b></p>
             <ul>

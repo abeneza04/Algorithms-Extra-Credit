@@ -1,45 +1,68 @@
-class DisjointSet:
-    def __init__(self, n):
-        self.parent = list(range(n))
-        self.rank = [0]*n
+"""
+Problem: given a wighted and undirect graph. This algorithm needs to find a subset of edges that has all the vertices
+connected. Has the minimum total edge weight.
+Result is in the README
+"""
+class Graph:
+    def __init__(self, vertices):
+        self.V = vertices  # number of vertices
+        self.edges = []    # list to store edges in the form (u, v, weight)
 
-    def find(self, u):
-        if self.parent[u] != u:
-            self.parent[u] = self.find(self.parent[u])
-        return self.parent[u]
+    def add_edge(self, u, v, w):
+        #Add an edge to the graph
+        self.edges.append((u, v, w))
 
-    def union(self, u, v):
-        u_root = self.find(u)
-        v_root = self.find(v)
-        if u_root == v_root:
-            return False
-        if self.rank[u_root] < self.rank[v_root]:
-            self.parent[u_root] = v_root
-        elif self.rank[u_root] > self.rank[v_root]:
-            self.parent[v_root] = u_root
+    def find(self, parent, i):
+        #Find set of element i with path compression.
+        if parent[i] != i:
+            parent[i] = self.find(parent, parent[i])
+        return parent[i]
+
+    def union(self, parent, rank, x, y):
+        #Union two sets by rank
+        if rank[x] < rank[y]:
+            parent[x] = y
+        elif rank[x] > rank[y]:
+            parent[y] = x
         else:
-            self.parent[v_root] = u_root
-            self.rank[u_root] += 1
-        return True
+            parent[y] = x
+            rank[x] += 1
 
-def kruskal(n, edges):
-    edges.sort() 
-    ds = DisjointSet(n)
-    mst = []
-    for weight, u, v in edges:
-        if ds.union(u, v):
-            mst.append((u, v, weight))
-    return mst
+    def kruskal_mst(self):
+        #Construct MST using Kruskal's algorithm.
+        # Sort edges by weight
+        self.edges.sort(key=lambda edge: edge[2])
+
+        parent = [i for i in range(self.V)]  # parent of each vertex
+        rank = [0] * self.V                  # rank for union by rank
+        mst = []                       
+
+        for u, v, w in self.edges:
+            x = self.find(parent, u)
+            y = self.find(parent, v)
+
+            # If adding this edge doesn't create a cycle
+            if x != y:
+                mst.append((u, v, w))
+                self.union(parent, rank, x, y)
+
+            # Stop if MST has V-1 edges
+            if len(mst) == self.V - 1:
+                break
+        total_weight = 0
+        print("Edges in the constructed MST:")
+        for u, v, w in mst:
+            total_weight += w
+            print(f"{u} -- {v} == {w}")
+        print("Total weight of MST:", total_weight)
 
 
-edges = [
-    (1, 0, 1),
-    (3, 0, 2),
-    (3, 1, 2),
-    (6, 1, 3),
-    (4, 2, 3)
-]
-n = 4  
+if __name__ == "__main__":
+    g = Graph(4)
+    g.add_edge(0, 1, 10)
+    g.add_edge(0, 2, 6)
+    g.add_edge(0, 3, 5)
+    g.add_edge(1, 3, 15)
+    g.add_edge(2, 3, 4)
 
-mst = kruskal(n, edges)
-print(mst)
+    g.kruskal_mst()
